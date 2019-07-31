@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ResetRoutingModule } from './reset-routing.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 // Containers
 import { ResetComponent } from './containers/reset.component';
@@ -11,8 +11,8 @@ import { ResetComponent } from './containers/reset.component';
     ResetComponent
   ],
   imports: [
-    CommonModule,
-    ResetRoutingModule
+    ResetRoutingModule,
+    SharedModule
   ]
 })
 export class ResetModule { }

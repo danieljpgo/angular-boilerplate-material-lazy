@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ForgetRoutingModule } from './forget-routing.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 // Containers
 import { ForgetComponent } from './containers/forget.component';
@@ -10,8 +10,8 @@ import { ForgetComponent } from './containers/forget.component';
     ForgetComponent
   ],
   imports: [
-    CommonModule,
-    ForgetRoutingModule
+    ForgetRoutingModule,
+    SharedModule,
   ]
 })
 export class ForgetModule { }
