@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-internal',
@@ -6,14 +6,10 @@ import { Component, OnInit } from '@angular/core';
     <app-navigations>
         <router-outlet></router-outlet>
     </app-navigations>
-  `
-  // style: []
+  `,
+  styles: []
 })
-export class PageComponent implements OnInit {
+export class PageComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
