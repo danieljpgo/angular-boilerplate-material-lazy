@@ -1,0 +1,145 @@
+/*
+ * Post that can help you change and manipulate the theme
+ * https://material.angular.io/guide/typography
+ * https://stackoverflow.com/questions/43438305/how-to-change-font-color-of-primary-palette-in-angular-material2/46157803#46157803
+ */
+
+@import '~@angular/material/theming';
+
+// Import of the whole core content of the Material Theme
+// It's important to remember, however, that the mat-core mixin should only ever be included once.
+@include mat-core();
+
+// Light Theme
+$light-app-primary: mat-palette($mat-blue, 500, 300, 700);
+$light-app-accent: mat-palette($mat-green, 600, 300, 700);
+$light-app-warn: mat-palette($mat-red, A200);
+
+$light-app-theme: mat-light-theme($light-app-primary, $light-app-accent, $light-app-warn);
+
+$light-app-font-color: mat-palette($mat-grey, 700); /* #616161 */
+
+// Foreground palette for light themes.
+// You can play with the map and define only the fields you want and leave the others as default.
+@function main-mat-light-theme-foreground($color) {
+  @return (
+    base:              $color,
+    divider:           $black-12-opacity,
+    dividers:          $black-12-opacity,
+    disabled:          rgba($color, 0.38),
+    disabled-button:   rgba($color, 0.26),
+    disabled-text:     rgba($color, 0.38),
+    elevation:         black,
+    hint-text:         rgba($color, 0.36),
+    secondary-text:    rgba($color, 1.00), /* Secondary Text */
+    icon:              rgba($color, 1.00), /* Icon Color */
+    icons:             rgba($color, 1.00), /* Icons Color */
+    text:              rgba($color, 1.00), /* Text Color */
+    slider-min:        rgba($color, 0.87),
+    slider-off:        rgba($color, 0.26),
+    slider-off-active: rgba($color, 0.38),
+  );
+};
+// Variable that has the entire foreground palette
+$light-foreground-palette: main-mat-light-theme-foreground(mat-color($light-app-font-color));
+
+// Merge app-theme with the foreground
+$light-app-main-theme: map-merge($light-app-theme, (foreground: $light-foreground-palette));
+
+// Include your custom theme.
+@include angular-material-theme($light-app-main-theme);
+
+
+
+
+
+
+//========================= Dark Theme =============================
+
+
+
+
+
+// Dark Theme
+$dark-app-primary: mat-palette($mat-blue, 500, 300, 700);
+$dark-app-accent: mat-palette($mat-green, 600, 300, 700);
+$dark-app-warn: mat-palette($mat-red, A200);
+
+$dark-app-theme: mat-dark-theme($dark-app-primary, $dark-app-accent, $dark-app-warn);
+
+$dark-app-font-color: mat-palette($mat-grey, A100); /* #FFFFFF */
+
+@function main-mat-dark-theme-foreground($color) {
+  @return (
+    base:              $color,
+    divider:           $black-12-opacity,
+    dividers:          $black-12-opacity,
+    disabled:          rgba($color, 0.38),
+    disabled-button:   rgba($color, 0.26),
+    disabled-text:     rgba($color, 0.38),
+    elevation:         black,
+    hint-text:         rgba($color, 0.36),
+    secondary-text:    rgba($color, 1.00), /* Secondary Text */
+    icon:              rgba($color, 1.00), /* Icon Color */
+    icons:             rgba($color, 1.00), /* Icons Color */
+    text:              rgba($color, 1.00), /* Text Color */
+    slider-min:        rgba($color, 0.87),
+    slider-off:        rgba($color, 0.26),
+    slider-off-active: rgba($color, 0.38),
+  );
+};
+
+$dark-foreground-palette: main-mat-dark-theme-foreground(mat-color($dark-app-font-color));
+
+$dark-app-main-theme: map-merge($dark-app-theme, (foreground: $dark-foreground-palette));
+
+// Apply the class to change to dark mode
+.dark-mode{
+  @include angular-material-theme($dark-app-main-theme);
+}
+
+
+
+
+
+
+
+// ======================= Example =============================
+
+
+//$mat-light-theme-foreground: (
+//  base:              black,
+//  divider:           $dark-dividers,
+//  dividers:          $dark-dividers,
+//  disabled:          $dark-disabled-text,
+//  disabled-button:   rgba(black, 0.26),
+//  disabled-text:     $dark-disabled-text,
+//  elevation:         black,
+//  hint-text:         $dark-disabled-text,
+//  secondary-text:    $dark-secondary-text,
+//  icon:              rgba(black, 0.54),
+//  icons:             rgba(black, 0.54),
+//  text:              rgba(black, 0.87),
+//  slider-min:        rgba(black, 0.87),
+//  slider-off:        rgba(black, 0.26),
+//  slider-off-active: rgba(black, 0.38),
+//);
+//
+//// Foreground palette for dark themes.
+//$mat-dark-theme-foreground: (
+//  base:              white,
+//  divider:           $light-dividers,
+//  dividers:          $light-dividers,
+//  disabled:          $light-disabled-text,
+//  disabled-button:   rgba(white, 0.3),
+//  disabled-text:     $light-disabled-text,
+//  elevation:         black,
+//  hint-text:         $light-disabled-text,
+//  secondary-text:    $light-secondary-text,
+//  icon:              white,
+//  icons:             white,
+//  text:              white,
+//  slider-min:        white,
+//  slider-off:        rgba(white, 0.3),
+//  slider-off-active: rgba(white, 0.3),
+//);
