@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { LoginRoutingModule } from './login-routing.module';
+
+// Containers
 import { LoginComponent } from './containers/login.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     LoginRoutingModule
